@@ -1,5 +1,41 @@
-# Vue 3 + TypeScript + Vite
+# TaskControl
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Aplicación web de gestión de tareas hecha con Vue 3, TypeScript, Pinia, Vue Router, Firebase y Docker.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Características
+
+- Registro e inicio de sesión
+- CRUD de tareas
+- Filtros por estado y prioridad
+- Búsqueda
+- Dashboard con métricas
+- Persistencia local y soporte opcional con Firebase
+- Docker
+- Jenkins
+
+## Ejecutar en local
+
+```bash
+npm install
+npm run dev
+```
+
+## Variables de entorno opcionales
+
+Copia `.env.example` a `.env` y completa tus credenciales de Firebase.
+
+## Docker
+
+```bash
+docker build -t taskcontrol .
+docker run -p 8080:80 taskcontrol
+```
+
+## Jenkins
+
+El archivo `Jenkinsfile` contiene una pipeline simple de instalación, build y construcción de imagen Docker.
+
+
+## Nota
+
+Si no configuras las variables de Firebase, la aplicación funciona en modo local con almacenamiento en el navegador.
