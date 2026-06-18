@@ -10,7 +10,7 @@ const displayName = ref('')
 const email = ref('')
 const password = ref('')
 
-const handleRegister = (): Promise<void> => {
+const handleRegister = async (): Promise<void> => {
 	await auth.register(email.value, password.value, displayName.value)
 	await router.push('/dashboard')
 }

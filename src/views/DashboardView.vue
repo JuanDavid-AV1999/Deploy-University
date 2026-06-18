@@ -49,7 +49,7 @@ const remove = async (taskId: string): Promise<void> => {
 	if (editingTask.value?.id === taskId) editingTask.value = null
 }
 
-const handleLogout = async (): void => {
+const handleLogout = async (): Promise<void> => {
 	await auth.logout()
 	await router.push('/login')
 }

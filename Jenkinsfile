@@ -4,7 +4,13 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'npm install'
+        sh 'npm ci'
+      }
+    }
+
+    stage('Validate') {
+      steps {
+        sh 'npm run lint'
       }
     }
 
@@ -17,6 +23,12 @@ pipeline {
     stage('Docker Build') {
       steps {
         sh 'docker build -t taskcontrol .'
+      }
+    }
+
+    stage('Docker Smoke Test') {
+      steps {
+        sh 'docker run --rm taskcontrol nginx -t'
       }
     }
   }
