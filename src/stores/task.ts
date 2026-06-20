@@ -1,6 +1,7 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { getTasks, removeTask, saveTask, toggleTaskCompletion } from '@/services/task'
+import { calculateCompletionRate, countCompletedTasks } from '@/utils/taskMetrics'
 import type {
 	Task,
 	TaskCategory,
@@ -102,10 +103,10 @@ export const useTaskStore = defineStore('tasks', () => {
 	})
 
 	const total = computed(() => tasks.value.length)
-	const completed = computed(() => tasks.value.filter((task) => task.completed).length)
+	const completed = computed(() => countCompletedTasks(tasks.value))
 	const pending = computed(() => total.value - completed.value)
 	const completionRate = computed(() =>
-		total.value === 0 ? 0 : Math.round((completed.value / total.value) * 100),
+		calculateCompletionRate(total.value, completed.value),
 	)
 
 	const categories = computed(() => {

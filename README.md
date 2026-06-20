@@ -13,7 +13,7 @@ Aplicación web de gestión de tareas hecha con Vue 3, TypeScript, Pinia, Vue Ro
 - Docker
 - Jenkins
 - Travis CI
-- Codeship
+- GitHub Actions
 
 ## Ejecutar en local
 
@@ -37,15 +37,8 @@ docker run -p 8080:80 taskcontrol
 
 El archivo `Jenkinsfile` contiene una pipeline de instalación, validación, build, construcción de imagen Docker y prueba básica del contenedor.
 
-## Travis CI y Codeship
+## Travis CI y GitHub Actions
 
-La integración continua complementaria está configurada en `.travis.yml`, `codeship-services.yml` y `codeship-steps.yml`.
+La integración continua complementaria está configurada en `.travis.yml` y `.github/workflows/deploy.yml`.
 
-## Entrega 3
-
-El documento `ENTREGA_3.md` consolida la integración final, historial de cambios, sugerencias para solución de problemas, responsabilidades y opiniones solicitadas por la actividad evaluativa.
-
-
-## Nota
-
-Si no configuras las variables de Firebase, la aplicación funciona en modo local con almacenamiento en el navegador.
+El workflow de GitHub Actions instala dependencias, valida TypeScript, ejecuta pruebas, compila la aplicación, construye la imagen Docker, valida la configuración de Nginx y despliega en GitHub Pages cuando se actualiza `main` o `master`.
