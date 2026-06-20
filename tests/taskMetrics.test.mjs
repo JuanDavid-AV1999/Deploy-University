@@ -31,7 +31,7 @@ test('countCompletedTasks counts only completed tasks', () => {
 })
 
 test('calculateCompletionRate returns a rounded percentage', () => {
-	assert.equal(calculateCompletionRate(3, 2), 100)
+	assert.equal(calculateCompletionRate(3, 2), 67)
 })
 
 test('calculateCompletionRate returns zero when there are no tasks', () => {
